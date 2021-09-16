@@ -1,5 +1,6 @@
 -- BASE EXEMPLE --
 
+-- PART 1 --
 
 1 - SELECT * FROM employe;
 
@@ -54,6 +55,22 @@
 27 - SELECT nom, salaire, tauxcom, (tauxcom * salaire) AS "commission" FROM employe WHERE tauxcom IS NOT NULL ORDER BY "commission" ASC;
 
 28 - SELECT CONCAT(prenom, " ", nom) AS "prenom et nom" FROM employe;
+
+
+
+29 - SELECT SUBSTRING(nom, 1, n) AS "5 premières lettres noms" FROM employe;
+
+30 - SELECT nom, LOCATE("r", nom) FROM employe;
+
+31 - SELECT nom, LOWER(nom), UPPER(nom) FROM employe WHERE nom = "Vrante";
+
+32 - SELECT nom, LENGTH(nom) FROM employe;
+
+-- PART 2 --
+
+1 - SELECT titre, COUNT(nom) AS "nombre d'employés" FROM employe GROUP BY titre; 
+
+2 - SELECT nom.dept, AVG(salaire) AS "moyenne des salaires", SUM(salaire) FROM dept,employe GROUP BY nom.dept;
 
 -- BASE HOTEL --
 
