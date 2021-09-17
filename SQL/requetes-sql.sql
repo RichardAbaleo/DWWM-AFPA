@@ -56,9 +56,7 @@
 
 28 - SELECT CONCAT(prenom, " ", nom) AS "prenom et nom" FROM employe;
 
-
-
-29 - SELECT SUBSTRING(nom, 1, n) AS "5 premières lettres noms" FROM employe;
+29 - SELECT SUBSTRING(nom, 1, 5) AS "5 premières lettres noms" FROM employe;
 
 30 - SELECT nom, LOCATE("r", nom) FROM employe;
 
@@ -70,11 +68,42 @@
 
 1 - SELECT titre, COUNT(nom) AS "nombre d'employés" FROM employe GROUP BY titre; 
 
-2 - SELECT nom.dept, AVG(salaire) AS "moyenne des salaires", SUM(salaire) FROM dept,employe GROUP BY nom.dept;
+2 - SELECT nodep, AVG(salaire) AS "moyenne des salaires", SUM(salaire) AS "Total salaire" FROM employe GROUP BY nodep;
+
+3 - SELECT nodep, COUNT(nom) FROM employe GROUP BY nodep HAVING COUNT(nom) > 2;
+
+4 - SELECT SUBSTRING(nom, 1, 1), COUNT(SUBSTRING(nom, 1, 1)) FROM employe GROUP BY SUBSTRING(nom, 1, 1) HAVING COUNT(SUBSTRING(nom, 1, 1)) > 2; 
+
+5 - SELECT MAX(salaire), MIN(salaire), (MAX(salaire) - MIN(salaire)) FROM employe;
+
+6 - SELECT DISTINCT COUNT(titre) FROM employe;
+
+7 - SELECT titre, COUNT(nom) FROM employe GROUP BY titre;
+
+8 - SELECT dept.nodept, dept.nom, COUNT(employe.nom) FROM employe, dept WHERE employe.nodep = dept.nodept GROUP BY dept.nodept;
+
+9 - SELECT titre, AVG(salaire) FROM employe GROUP BY titre -- HAVING --;
+
+10 - SELECT COUNT(salaire), COUNT(tauxcom) FROM employe;
+
 
 -- BASE HOTEL --
 
 
 1 - SELECT hot_nom AS "Hôtel", hot_ville AS "Ville" FROM hotel;
 
-2 - SELECT cli_nom AS "Nom", cli_ville
+2 - SELECT cli_nom AS "Nom", cli_prenom AS "prenom", cli_adresse AS "adresse", cli_ville AS "ville" FROM CLIENT WHERE cli_nom = "Mr White";
+
+3 - SELECT sta_nom AS "nom station" FROM station WHERE sta_altitude < 1000;
+
+4 - SELECT cha_numero AS "numéro de chambre", cha_capacite AS "capacité" FROM chambre WHERE cha_capacite > 1;
+
+5 - SELECT cli_nom, cli_ville FROM CLIENT WHERE cli_ville != "Londre";
+
+6 - SELECT hot_nom, hot_ville, hot_categorie FROM hotel WHERE nom_ville = "Bretou" AND hot_categorie > 3;
+
+7 - SELECT sta_nom, hot_nom, hot_categorie, hot_ville FROM station, hotel WHERE station.sta_id = hotel.hot_sta_id;
+
+8 - SELECT hot_nom, hot_categorie, hot_ville, cha_numero FROM hotel, chambre WHERE hotel.hot_id = chambre.cha_hot_id;
+
+9 - SELECT hot_nom, hot_categorie, hot_ville, cha_numero, cha_capacite FROM hotel, chambre WHERE hotel.hot_id = chambre.chat_hot_id AND hot_ville = "Bretou" AND cha_capacite > 1;
