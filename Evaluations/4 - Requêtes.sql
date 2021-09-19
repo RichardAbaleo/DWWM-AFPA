@@ -41,5 +41,8 @@ Q16 - SELECT ord_id, cus_lastname, ord_order_date, ode_quantity, sum((ode_unit_p
 Q17 - SELECT (SUM((ode_unit_price-(ode_unit_price*ode_discount/100))*ode_quantity))/COUNT(DISTINCT(ord_id)) AS "panier moyen" FROM orders_details, orders 
     WHERE orders_details.ode_ord_id = orders.ord_id;
 
-Q18 - UPDATE 
+Q18 - UPDATE products SET pro_name = "Camper", pro_price = pro_price*0.9, pro_update_date = CURRENT_TIME() WHERE pro_ref = "barb004";
 
+Q19 - UPDATE products SET pro_price = pro_price*1.011 WHERE pro_cat_id = 25;
+
+Q20 - DELETE FROM products WHERE pro_cat_id = (SELECT cat_id FROM categories WHERE cat_name ="Tondeuses électriques")  AND pro_id NOT IN (SELECT ode_pro_id FROM orders_details);
