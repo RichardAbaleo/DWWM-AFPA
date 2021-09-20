@@ -1,0 +1,12 @@
+-- J'ouvre le terminal à l'endroit où je souhaite enregistrer mon backup --
+
+-- Commande pour créer le backup
+
+mysqldump -u user -p password  >  nom_backup.sql
+mysqldump -u abaleo gescom_afpa > backup_gescom_afpa.sql
+
+-- commande pour restaurer le backup
+
+mysql -u user -p password < nom_backup.sql
+mysql -u abaleo gescom_afpa < backup_gescom_afpa
+

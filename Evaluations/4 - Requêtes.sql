@@ -15,10 +15,10 @@ Q7 - SELECT pro_id, pro_ref, pro_name FROM products WHERE pro_id NOT IN (SELECT 
 Q8 - SELECT pro_id, pro_ref, pro_color, pro_name, cus_id, cus_lastname, ord_id, ode_id FROM products, customers, orders, orders_details WHERE customers.cus_id = orders.ord_cus_id 
     AND orders.ord_id = orders_details.ode_ord_id AND orders_details.ode_pro_id = products.pro_id AND cus_lastname = "Pikatchien"; 
 
-Q9 - SELECT cat_id, cat_name, pro_name FROM categories, products WHERE categories.cat_id = products.pro_cat_id;
+Q9 - SELECT cat_id, cat_name, pro_name FROM categories, products WHERE categories.cat_id = products.pro_cat_id ORDER BY cat_name ASC;
 
 Q10 - SELECT CONCAT(emp2.emp_lastname, " ", emp2.emp_firstname) AS "Employé", pos2.pos_libelle AS "Poste", CONCAT(emp1.emp_lastname, " ", emp1.emp_firstname) AS "Supérieur", pos1.pos_libelle AS "Poste"
-    FROM employees AS emp1 , employees AS emp2, posts AS pos2, posts AS pos1 WHERE emp1.emp_id = emp2.emp_superior_id AND pos2.pos_id = emp2.emp_pos_id  AND pos1.pos_id = emp1.emp_pos_id ORDER BY "Employé" ASC;
+    FROM employees AS emp1 , employees AS emp2, posts AS pos2, posts AS pos1 WHERE emp1.emp_id = emp2.emp_superior_id AND pos2.pos_id = emp2.emp_pos_id  AND pos1.pos_id = emp1.emp_pos_id AND emp2.emp_sho_id = 3 ORDER BY "Employé" ASC;
 
 Q11 - SELECT CONCAT("produit n° ", pro_id, " ", pro_name, " (", pro_ref, " ", pro_color, ")") AS "Produit", ord_id AS "commande n°", ode_id AS "ligne de commande n°", CONCAT(ode_discount, "%") AS "Remise"
     FROM orders_details, orders, products WHERE orders.ord_id = orders_details.ode_ord_id AND orders_details.ode_pro_id = products.pro_id ORDER BY ode_discount DESC LIMIT 1;
@@ -34,7 +34,7 @@ Q14 - SELECT sup_id, sup_name, sup_address, sup_zipcode, sup_city, sup_contact, 
 Q15 - SELECT SUM((ode_unit_price-(ode_unit_price*ode_discount/100))*ode_quantity) AS "Chiffre d'affaires" FROM orders_details, orders 
     WHERE orders_details.ode_ord_id = orders.ord_id AND YEAR(ord_order_date) = 2020;
 
-Q16 - SELECT ord_id, cus_lastname, ord_order_date, ode_quantity, sum((ode_unit_price-(ode_unit_price*ode_discount/100))*ode_quantity) 
+Q16 - SELECT ord_id, cus_lastname, ord_order_date, ode_quantity, SUM((ode_unit_price-(ode_unit_price*ode_discount/100))*ode_quantity) 
     FROM orders, orders_details, customers WHERE orders_details.ode_ord_id = orders.ord_id AND customers.cus_id = orders.ord_cus_id
     GROUP BY ord_id ORDER BY SUM((ode_unit_price-(ode_unit_price*ode_discount/100))*ode_quantity) DESC;
 
