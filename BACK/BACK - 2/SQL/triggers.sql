@@ -54,7 +54,7 @@ END;
 
 
 DELIMITER |	
-CREATE TRIGGER commander_articles
+CREATE TRIGGER after_products_update
 AFTER UPDATE ON `products`
 FOR EACH ROW
 BEGIN

@@ -16,7 +16,7 @@ WHERE hotel.hot_id = chambre.cha_hot_id AND chambre.cha_id = reservation.res_cha
 
 
 
-CREATE VIEW v_Details AS SELECT pro_ean AS "Code Produit", ode_quantity AS "QteTot", ode_quantity * ode_unit_price * (1-(0.01 * ode_discount)) AS "PrixTot" 
+CREATE VIEW v_Details AS SELECT pro_ean AS "Code Produit", SUM(ode_quantity) AS "QteTot", ode_quantity * ode_unit_price * (1-(0.01 * ode_discount)) AS "PrixTot" 
 FROM products, orders_details WHERE orders_details.ode_pro_id = products.pro_id GROUP BY pro_ean;
 -- (Il n'y a que des code produit NULL dans la base de données hotel fourni, mais celà marche par exemple en utilisant pro_id à la place de pro_ean)
 

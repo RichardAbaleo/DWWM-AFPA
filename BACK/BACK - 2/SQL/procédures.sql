@@ -1,10 +1,10 @@
-DELIMITER $$
+DELIMITER |
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Lst_Suppliers`()
     NO SQL
 SELECT sup_name FROM suppliers, products, orders_details WHERE suppliers.sup_id = products.pro_sup_id AND products.pro_id = orders_details.ode_pro_id AND ode_id IS NOT NULL GROUP BY sup_name$$
 DELIMITER ;
 
-DELIMITER $$
+DELIMITER |
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Lst_Rush_Orders`(IN `p_libelle` VARCHAR(50))
     NO SQL
 SELECT ord_id FROM orders WHERE ord_status = p_libelle$$
