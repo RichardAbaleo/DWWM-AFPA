@@ -107,3 +107,19 @@
 8 - SELECT hot_nom, hot_categorie, hot_ville, cha_numero FROM hotel, chambre WHERE hotel.hot_id = chambre.cha_hot_id;
 
 9 - SELECT hot_nom, hot_categorie, hot_ville, cha_numero, cha_capacite FROM hotel, chambre WHERE hotel.hot_id = chambre.chat_hot_id AND hot_ville = "Bretou" AND cha_capacite > 1;
+
+10 - SELECT cli_nom, hot_nom, res_date FROM client, hotel, reservation;
+
+11 - SELECT sta_nom, hot_nom, cha_numero, cha_capacite FROM station, hotel, chambre;
+
+12 - SELECT cli_nom, hot_nom, res_date_debut, res_date_fin FROM client, hotel, reservation;
+
+13 - SELECT sta_nom, COUNT(hot_nom) AS "nombre d'hotel" FROM station, hotel WHERE station.sta_id = hotel.hot_sta_id GROUP BY sta_nom; 
+
+14 - SELECT sta_nom, COUNT(cha_id) AS "nombre de chambre par station" FROM hotel, station, chambre WHERE station.sta_id = hotel.hot_sta_id AND chambre.cha_hot_id = hotel.hot_id GROUP BY sta_nom;
+
+15 - SELECT sta_nom, COUNT(cha_id) AS "nombre de chambre par station" FROM hotel, station, chambre WHERE station.sta_id = hotel.hot_sta_id AND chambre.cha_hot_id = hotel.hot_id AND cha_capacite > 1 GROUP BY sta_nom;
+
+16 - SELECT hot_nom, cli_nom FROM hotel, client, reservation, chambre WHERE client.cli_id = reservation.res_cli_id AND reservation.res_cha_id = chambre.cha_id AND chambre.cha_hot_id = hotel.hot_id HAVING cli_nom = "Squire";
+
+17 - SELECT AVG(res_date_fin - res_date_debut) FROM reservation;
