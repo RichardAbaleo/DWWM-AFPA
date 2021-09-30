@@ -7,7 +7,7 @@ USE `Village_Green`;
 CREATE TABLE category(
    cat_id INT AUTO_INCREMENT,
    cat_name VARCHAR(20),
-   cat_sup_id INT NOT NULL,
+   cat_sup_id INT NULL,
    PRIMARY KEY(cat_id),
    FOREIGN KEY(cat_sup_id) REFERENCES category(cat_id)
 );
