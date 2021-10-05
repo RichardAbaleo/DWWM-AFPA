@@ -1,51 +1,54 @@
 <?php
 
-date_default_timezone_set('UTC');
-$pro_id = $_POST["pro_id"]; 
-$pro_ref = htmlspecialchars($_POST["pro_ref"]); 
-$pro_cat_id = $_POST["pro_cat"];
-$pro_libelle = htmlspecialchars($_POST["pro_libelle"]);
-$pro_description = htmlspecialchars($_POST["pro_description"]);
-$pro_prix = htmlspecialchars($_POST["pro_prix"]);
-$pro_stock = htmlspecialchars($_POST["pro_stock"]);
-$pro_couleur = htmlspecialchars($_POST["pro_couleur"]);
-$pro_bloque = $_POST["pro_bloque"];
-$pro_d_ajout = $_POST["pro_d_ajout"];
-$pro_d_modif = date("Y-m-d H:i:s"); 
-if ($pro_bloque == "Non") {
-    $pro_bloque == NULL;
-} else {
-    $pro_bloque == "0";
-}
+$disc_id = $_POST["disc_id"]; 
+$disc_title = htmlspecialchars($_POST["disc_title"]); 
+$artist_id = $_POST["artist_id"];
+$disc_label = htmlspecialchars($_POST["disc_label"]);
+$disc_year = htmlspecialchars($_POST["disc_year"]);
+$disc_genre = htmlspecialchars($_POST["disc_genre"]);
+$disc_price = htmlspecialchars($_POST["disc_price"]);
+$disc_picture = $_FILES["disc_picture"]["name"];
+$tmpName = $_FILES['disc_picture']['tmp_name'];
 
 require "connexion_bdd.php";
 
 
 try {
 
-$rq = "UPDATE produits,categories SET pro_id=:pro_id, pro_ref=:pro_ref,
-  pro_libelle=:pro_libelle, pro_description=:pro_description, pro_prix=:pro_prix,pro_cat_id=:pro_cat_id,
- pro_stock=:pro_stock, pro_couleur=:pro_couleur, pro_bloque=:pro_bloque, pro_d_ajout=:pro_d_ajout,
- pro_d_modif=:pro_d_modif WHERE pro_id=:pro_id AND produits.pro_cat_id = categories.cat_id";
-$requete = $db->prepare($rq);
-$requete->bindValue(':pro_id', $pro_id, PDO::PARAM_INT);
-$requete->bindValue(':pro_ref', $pro_ref, PDO::PARAM_STR);
-$requete->bindValue(':pro_cat_id', $pro_cat_id, PDO::PARAM_STR);
-$requete->bindValue(':pro_libelle', $pro_libelle, PDO::PARAM_STR);
-$requete->bindValue(':pro_description', $pro_description, PDO::PARAM_STR);
-$requete->bindValue(':pro_prix', $pro_prix, PDO::PARAM_INT);
-$requete->bindValue(':pro_stock', $pro_stock, PDO::PARAM_INT);
-$requete->bindValue(':pro_couleur', $pro_couleur, PDO::PARAM_STR);
-if ($pro_bloque == "Non") {
-    $requete->bindValue(':pro_bloque', null, PDO::PARAM_INT);
-} else {
-    $requete->bindValue(':pro_bloque', 0, PDO::PARAM_INT);
+if($disc_picture != ""){
+    $rq = "UPDATE disc SET disc_id=:disc_id, disc_title=:disc_title,
+    disc_label=:disc_label, disc_year=:disc_year, artist_id=:artist_id,
+    disc_genre=:disc_genre, disc_price=:disc_price, disc_picture=:disc_picture
+    WHERE disc_id=:disc_id";
+    $requete = $db->prepare($rq);
+    $requete->bindValue(':disc_id', $disc_id, PDO::PARAM_INT);
+    $requete->bindValue(':disc_title', $disc_title, PDO::PARAM_STR);
+    $requete->bindValue(':artist_id', $artist_id, PDO::PARAM_INT);
+    $requete->bindValue(':disc_label', $disc_label, PDO::PARAM_STR);
+    $requete->bindValue(':disc_year', $disc_year, PDO::PARAM_INT);
+    $requete->bindValue(':disc_genre', $disc_genre, PDO::PARAM_STR);
+    $requete->bindValue(':disc_price', $disc_price, PDO::PARAM_INT);
+    $requete->bindValue(':disc_picture', $disc_picture, PDO::PARAM_STR);
+    move_uploaded_file($tmpName, 'src/img/'.$disc_picture);
 }
-$requete->bindValue(':pro_d_ajout', $pro_d_ajout, PDO::PARAM_STR);
-$requete->bindValue(':pro_d_modif', $pro_d_modif, PDO::PARAM_STR);
+else {
+    $rq = "UPDATE disc SET disc_id=:disc_id, disc_title=:disc_title,
+    disc_label=:disc_label, disc_year=:disc_year, artist_id=:artist_id,
+    disc_genre=:disc_genre, disc_price=:disc_price
+    WHERE disc_id=:disc_id";
+    $requete = $db->prepare($rq);
+    $requete->bindValue(':disc_id', $disc_id, PDO::PARAM_INT);
+    $requete->bindValue(':disc_title', $disc_title, PDO::PARAM_STR);
+    $requete->bindValue(':artist_id', $artist_id, PDO::PARAM_INT);
+    $requete->bindValue(':disc_label', $disc_label, PDO::PARAM_STR);
+    $requete->bindValue(':disc_year', $disc_year, PDO::PARAM_INT);
+    $requete->bindValue(':disc_genre', $disc_genre, PDO::PARAM_STR);
+    $requete->bindValue(':disc_price', $disc_price, PDO::PARAM_INT);
+
+}
 
 $requete->execute();
-$requete->closeCursor();
+
 }
 catch (Exception $e) {
     echo "La connexion à la base de données a échoué ! <br>";

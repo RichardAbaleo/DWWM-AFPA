@@ -16,7 +16,7 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <title>Jarditou - Modification</title>
+    <title>Velvet - Modification</title>
   </head>
   <body>
     <?php
@@ -31,9 +31,6 @@
       <!-- Première ligne -->
       <div class="row">
         <div class="col-12">
-        <span style="color:red;">
-        <?php echo @$_SESSION['erreur_verif'] ?>
-        </span>
         <br /><br />
           <div class="text-center">
           <img class="img-fluid" width='400px' src="src/img/<?php echo $row->disc_picture; ?>">
@@ -44,6 +41,7 @@
               action="update_script.php?disc_id=<?php echo $disc_id ?>"
               method="POST"
               onsubmit="return updateVerif();"
+              enctype= "multipart/form-data"
             >
             <fieldset>
             <br />
@@ -68,7 +66,6 @@
                 name="disc_title"
                 value="<?php echo $row->disc_title ?>"
               />
-             <span id="titleErreur" style="color:red;"></span>
                 <br />
               <label for="artist_id">Artist :</label>
               <select class="form-control" id="artist_id" name="artist_id">
@@ -81,7 +78,6 @@
               }
               ?>
               </select>
-              <span id="artistErreur" style="color:red;"></span>
               <br />
               <label for="disc_label">Label :</label>
               <input
@@ -91,17 +87,15 @@
                 id="label"
                 value="<?php echo $row->disc_label ?>"
               />
-              <span id="labelErreur" style="color:red;"></span>
               <br />
-              <label for="year">Year :</label>
+              <label for="disc_year">Year :</label>
               <input
                 class="form-control"
-                type="text"
+                type="number"
                 name="disc_year"
                 id="year"
                 value="<?php echo $row->disc_year ?>"
               />
-              <span id="yearErreur" style="color:red;"></span>
               <br />
               <label for="disc_genre">Genre :</label>
               <input
@@ -111,7 +105,6 @@
                 id="genre"
                 value="<?php echo $row->disc_genre ?>"
               />
-              <span id="genreErreur" style="color:red;"></span>
               <br />
               <label for="disc_price">Price :</label>
               <input
@@ -121,7 +114,10 @@
                 id="price"
                 value="<?php echo $row->disc_price ?>"
               />
-              <span id="priceErreur" style="color:red;"></span>
+              <br />
+              <br />
+              <label for="disc_picture">Picture : </label>
+              <input type="file" name="disc_picture">
               <br />
               <br />
             </fieldset>
@@ -132,28 +128,6 @@
           <br />
         </div>
       </div>
-
-      <!-- Cinquième ligne-->
-      <footer>
-        <div class="row">
-          <div class="col-12">
-            <nav class="navbar navbar-expand bg-dark navbar-dark">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="">Mention légales</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="">Horaires</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="">Plan du site</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </footer>
-    </div>
 
     <!-- Script pour CSS bootstrap -->
     <script
@@ -171,6 +145,5 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    <script src="assets/js/form_verif.js"></script>
   </body>
 </html>

@@ -1,14 +1,14 @@
 <?php
 
-$pro_id = $_POST["pro_id"]; 
+$disc_id = $_POST["disc_id"]; 
 require "connexion_bdd.php";
 
 
 try {
 
-    $requete = $db->prepare("DELETE from produits WHERE pro_id=:pro_id");
+    $requete = $db->prepare("DELETE from disc WHERE disc_id=:disc_id");
 
-    $requete->bindValue(':pro_id', $pro_id, PDO::PARAM_INT);
+    $requete->bindValue(':disc_id', $disc_id, PDO::PARAM_INT);
     
     $requete->execute();
     
