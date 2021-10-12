@@ -7,7 +7,7 @@ class Personnage {
     private $_age;
     private $_sexe;
 
-    public function _construct ($nom, $prenom, $age, $sexe) 
+    public function _construct($nom, $prenom, $age, $sexe) 
     {
         $this->_nom = $nom;
         $this->_prenom = $prenom;
@@ -33,6 +33,26 @@ class Personnage {
     public function getSexe() 
     {
         return $this->_sexe;
+    }
+
+    public function setNom($nom) 
+    {
+        $this->_nom = $nom;
+    }
+
+    public function setPrenom($prenom) 
+    {
+        $this->_prenom = $prenom;
+    }
+
+    public function setAge($age) 
+    {
+        $this->_age = $age;
+    }
+
+    public function setSexe($sexe) 
+    {
+        $this->_sexe = $sexe;
     }
 }
 
