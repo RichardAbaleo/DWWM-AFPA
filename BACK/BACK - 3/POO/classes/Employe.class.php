@@ -1,62 +1,32 @@
 <?php
-class Magasin {
 
-    protected $_nomMagasin;
-    protected $_addressMagasin;
-    protected $_codePostalMagasin;
-    protected $_villeMagasin;
+require "Agence.class.php";
 
-    public function _construct($nom, $address, $codePostal, $ville) 
-    {   
-        $this->_nomMagasin = $nom;
-        $this->_addressMagasin = $address;
-        $this->_codePostalMagasin = $codePostal;
-        $this->_villeMagasin = $ville;
-    }
+class Employe {
 
-    public function getMagasin_nom()
-    {
-        return $this->_nomMagasin;
-    }
+    public $_nom;
+    public $_prenom;
+    public $_dateEmbauche;
+    public $_fonction;
+    public $_salaire;
+    public $_service;
+    public $_nomMagasin;
+    protected $_agence;
 
-    public function getMagasin_address()
-    {
-        return $this->_nomMagasin;
-    }
-
-    public function getMagasin_codePostal()
-    {
-        return $this->_nomMagasin;
-    }
-
-    public function getMagasin_ville()
-    {
-        return $this->_nomMagasin;
-    }
-}
-
-class Employe extends Magasin {
-
-    private $_nom;
-    private $_prenom;
-    private $_date;
-    private $_poste;
-    private $_salary;
-    private $_service;
-
-    public function _construct($nom, $prenom, $date, $poste, $salary, $service) 
+    public function _construct($nom, $prenom, $date, $poste, $salaire, $service, $agence) 
     {   
         $this->_nom = $nom;
         $this->_prenom = $prenom;
-        $this->_date = $date;
-        $this->_poste = $poste;
-        $this->_salary = $salary;
+        $this->_dateEmbauche = $date;
+        $this->_fonction = $poste;
+        $this->_salaire = $salaire;
         $this->_service = $service;
+        $this->_agence = $agence;
     }
 
     public function Employe_time() 
     {
-        $firstDate  = new DateTime($this->_date);
+        $firstDate  = new DateTime($this->_dateEmbauche);
         $secondDate = new DateTime(date("Y-m-d"));
         $interval = $firstDate->diff($secondDate);
         return $interval->format('%Y%');
@@ -64,7 +34,7 @@ class Employe extends Magasin {
 
     public function Employe_prime()
     {
-        $prime = (($this->_salary) * 12 * 0.05) + (($this->_salary)* 12 * 0.02 * ($this->Employe_time()));
+        $prime = (($this->_salaire) * 12 * 0.05) + (($this->_salaire)* 12 * 0.02 * ($this->Employe_time()));
         return $prime; 
     }
 
