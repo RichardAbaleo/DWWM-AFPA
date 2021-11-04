@@ -119,3 +119,11 @@ CREATE TABLE order_details(
    FOREIGN KEY(ode_ord_id) REFERENCES orders(ord_id),
    FOREIGN KEY(ode_pro_id) REFERENCES product(pro_id)
 );
+
+CREATE ROLE 'r_village_visiteur', 'r_village_client', 'r_village_gestion', 'r_village_admin';
+GRANT SELECT ON Village_Green.product TO 'r_village_visiteur';
+GRANT SELECT ON Village_Green.* TO 'r_village_client';
+GRANT INSERT, UPDATE ON Village_Green.orders TO 'r_village_client';
+GRANT INSERT, UPDATE ON Village_Green.users TO 'r_village_client';
+GRANT SELECT, INSERT ON Village_Green.* TO 'r_village_gestion';
+GRANT SELECT, INSERT, UPDATE, DELETE ON Village_Green.* TO 'r_village_admin';
