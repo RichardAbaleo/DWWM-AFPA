@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Village Green - {% block title %}{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <link href="{{ asset('assets/css/css.css') }}" type="text/css" rel="stylesheet">
+        {% endblock %}
+        
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            <div id="page">
+            <header id="header">
+            <div class="row">
+                <div class="col-12" id="menu-col-12">
+                        <div id="menu-1">
+                            <div id="menu-1-l">
+                                <img src="{{ asset('assets/pictures/HEADER/logo villagegreen.png') }}"/>
+                            </div>
+                            <div id="menu-1-r">
+                                <a href="" class="menu-1">Infos</a>
+                                <a href="" class="menu-1">Espace client</a>
+                                <a href="" class="menu-1"><img src="{{ asset('assets/pictures/HEADER/pictopanier.png') }}"/></a>
+                                <a href="" class="menu-1"><img src="{{ asset('assets/pictures/HEADER/pictopays.png') }}"/></a>
+                            </div>
+                        </div>
+
+                        <div id="menu-2">
+                            <div id="menu-2-l">
+                            </div>
+                            <div id="menu-2-r">
+                                <a href="" class="menu-2">Produits</a>
+                                <a href="" class="menu-2">Service</a>
+                                <a href="" class="menu-2">Aide</a>
+                                <a href="" class="menu-2">A propos</a>
+                            </div>
+                        </div>
+
+                        <div id="menu-3">
+                            <div id="menu-3-l">
+                            </div>
+                            <div id="menu-3-r">                           
+                            <a href="" class="menu-3">Guit/Bass</a>
+                            <a href="" class="menu-3">Batteries</a>
+                            <a href="" class="menu-3">Clavier</a>
+                            <a href="" class="menu-3">Studio</a>
+                            <a href="" class="menu-3">Sono</a>
+                            <a href="" class="menu-3">Eclairage</a>
+                            <a href="" class="menu-3">DJ</a>
+                            <a href="" class="menu-3">Cases</a>
+                            <a href="" class="menu-3">Accessoires</a>
+                            </div>
+                        </div>
+                </div> {# row #}
+            </div> {# col-12 #}
+            </header>
+        
+
+        {% block body %}{% endblock %}
+            </div>
+        </div> {# FIN CONTAINER #}
+    </body>
+</html>
+

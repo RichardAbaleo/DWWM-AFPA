@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Orders" table="orders">
+    <indexes>
+      <index name="ord_cou_id" columns="ord_cou_id"/>
+      <index name="ord_bill_cou_id" columns="ord_bill_cou_id"/>
+      <index name="ord_use_id" columns="ord_use_id"/>
+    </indexes>
+    <id name="ordId" type="integer" column="ord_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="ordOrderDate" type="datetime" column="ord_order_date" nullable="false"/>
+    <field name="ordPaymentDate" type="datetime" column="ord_payment_date" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="ordShipDate" type="date" column="ord_ship_date" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="ordReceptionDate" type="date" column="ord_reception_date" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="ordStatus" type="string" column="ord_status" length="20" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="ordAddress" type="string" column="ord_address" length="50" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="ordCity" type="string" column="ord_city" length="50" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="ordZipcode" type="string" column="ord_zipcode" length="5" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="ordBillAddress" type="string" column="ord_bill_address" length="50" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="ordBillCity" type="string" column="ord_bill_city" length="50" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="ordBillZipcode" type="string" column="ord_bill_zipcode" length="5" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-one field="ordCou" target-entity="Country" fetch="LAZY">
+      <join-columns>
+        <join-column name="ord_cou_id" referenced-column-name="cou_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="ordUse" target-entity="Users" fetch="LAZY">
+      <join-columns>
+        <join-column name="ord_use_id" referenced-column-name="use_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="ordBillCou" target-entity="Country" fetch="LAZY">
+      <join-columns>
+        <join-column name="ord_bill_cou_id" referenced-column-name="cou_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commercial index{% endblock %}
+
+{% block body %}
+    <h1>Commercial index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ComId</th>
+                <th>ComName</th>
+                <th>ComMail</th>
+                <th>ComPassword</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commercial in commercials %}
+            <tr>
+                <td>{{ commercial.comId }}</td>
+                <td>{{ commercial.comName }}</td>
+                <td>{{ commercial.comMail }}</td>
+                <td>{{ commercial.comPassword }}</td>
+                <td>
+                    <a href="{{ path('commercial_show', {'comId': commercial.comId}) }}">show</a>
+                    <a href="{{ path('commercial_edit', {'comId': commercial.comId}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('commercial_new') }}">Create new</a>
+{% endblock %}

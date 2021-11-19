@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Supplier" table="supplier">
+    <indexes>
+      <index name="sup_cou_id" columns="sup_cou_id"/>
+    </indexes>
+    <id name="supId" type="integer" column="sup_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="supName" type="string" column="sup_name" length="30" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="supCity" type="string" column="sup_city" length="20" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="supAddress" type="string" column="sup_address" length="50" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="supZipcode" type="string" column="sup_zipcode" length="5" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="supContact" type="string" column="sup_contact" length="30" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="supPhone" type="string" column="sup_phone" length="20" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="supMail" type="string" column="sup_mail" length="50" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-one field="supCou" target-entity="Country" fetch="LAZY">
+      <join-columns>
+        <join-column name="sup_cou_id" referenced-column-name="cou_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
