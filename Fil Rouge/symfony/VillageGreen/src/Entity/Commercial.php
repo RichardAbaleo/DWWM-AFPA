@@ -83,5 +83,8 @@ class Commercial
         return $this;
     }
 
+    public function __toString(){
+        return $this->comId;
+    }
 
 }

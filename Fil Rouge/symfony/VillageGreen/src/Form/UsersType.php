@@ -2,26 +2,32 @@
 
 namespace App\Form;
 
-use App\Entity\Commercial;
+use App\Entity\Users;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CommercialType extends AbstractType
+class UsersType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('comName')
-            ->add('comMail')
-            ->add('comPassword')
+            ->add('useLastname')
+            ->add('useFirstname')
+            ->add('useAddress')
+            ->add('useZipcode')
+            ->add('useCity')
+            ->add('useMail')
+            ->add('usePhone')
+            ->add('usePassword')
+            ->add('useCou')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Commercial::class,
+            'data_class' => Users::class,
         ]);
     }
 }

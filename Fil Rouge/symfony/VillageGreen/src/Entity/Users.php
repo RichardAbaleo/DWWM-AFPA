@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\Country;
+use App\Entity\Commercial;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

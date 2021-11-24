@@ -112,11 +112,27 @@ body {
     margin-left: -13px;
 }
 
-#aaa {
-    background-color: brown; 
-}
-
 #p-cat {
     color: rgb(0, 0, 53);
     font-weight: bold;
+}
+
+#form_inscription {
+    background-color: blue; 
+    height: 91%;
+}
+
+#form-1-l {
+    width: 50%;
+    background-color: chartreuse;
+}
+
+#form-1-l {
+    width: 50%;
+    background-color: purple;
+}
+
+#titre-form {
+    color: rgb(0, 0, 53);
+    font-size: 2em;
 }
