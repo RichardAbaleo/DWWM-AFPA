@@ -33,79 +33,60 @@
         <div class="col-12"><p class="text-center" id="titre-form">Créez vos identifiants</p></div>
     </div>
 
-    <div class="form-row mt-4">
-        <label for="staticEmail" class="col-2 col-form-label text-right">E-mail</label>
-        <div class="col-3">
-            <input type="mail" class="form-control"/>
+    <div class="form-row mt-3">
+
+        <div class="col-2 col-form-label text-right">
+            <p class="mt-3">Email</p>
+            <p class="mt-4 pt-1">Nom</p>
+            <p class="mt-4 pt-2">Adresse</p>
+            <p class="mt-4 pt-1">Complément d'adresse</p>
+            <p class="mt-4 pt-2">Code postal</p>
+            <p class="mt-4 pt-1">Ville</p>
+            <p class="mt-4 pt-2">Pays</p>
         </div>
-        <label for="staticEmail" class="col-3 col-form-label"></label>
-        <div class="col-3"></div>
-        <div class="col-1"></div>
+        <div class="col-3">
+            {{ form_widget(form.useMail) }}
+            {# <input type="text" class="form-control mt-3"/> #}
+            <input type="text" class="form-control mt-3"/>
+            <input type="text" class="form-control mt-3"/>
+            <input type="text" class="form-control mt-3"/>
+            <input type="text" class="form-control mt-3"/>
+            <input type="text" class="form-control mt-3"/>
+            <input type="text" class="form-control mt-3"/>
+        </div>
+
+        <div class="col-2"></div>
+        
+        <div class="col-4">
+            <div id="client-num">
+            <div style="height: 19%"></div>
+            <input id="test" type="text" class="form-control"/>
+            <div style="height: 3%"></div>
+            <input id="test" type="text" class="form-control"/>                    
+            </div>
+        </div>
+
     </div>
 
-    <div class="form-row mt-3">  
-        <label for="staticEmail" class="col-2 col-form-label text-right">Nom</label>
-        <div class="col-3">
-            <input type="password" class="form-control"/>
-        </div>
-        <label for="staticEmail" class="col-3 col-form-label text-right">Numéro de Portable</label>
-        <div class="col-3">
-            <input type="password" class="form-control"/>
-        </div>
-        <div class="col-1"></div>
+    <div class="col-1 mt-2">
     </div>
 
-    <div class="form-row mt-3">  
-        <label for="staticEmail" class="col-2 col-form-label text-right">Adresse</label>
-        <div class="col-3">
-            <input type="password" class="form-control"/>
+    <div class="row">
+        <div class="col-12 text-center mt-5 pt-5 mb-5">
+            <button type="submit" style="border: none;"><img src="{{ asset('assets/pictures/BODY/ESPACE CLIENT/bouton valider.png') }}"/></button>
         </div>
-        <label for="staticEmail" class="col-3 col-form-label text-right">Numéro de téléphone fixe</label>
-        <div class="col-3">
-            <input type="password" class="form-control"/>
-        </div>
-        <div class="col-1"></div>
-    </div>
-
-    <div class="form-row mt-4">
-        <label for="staticEmail" class="col-2 col-form-label text-right">Complément d'adresse</label>
-        <div class="col-3">
-            <input type="mail" class="form-control"/>
-        </div>
-        <label for="staticEmail" class="col-3 col-form-label"></label>
-        <div class="col-3"></div>
-        <div class="col-1"></div>
-    </div>
-
-    <div class="form-row mt-4">
-        <label for="staticEmail" class="col-2 col-form-label text-right">Code Postal</label>
-        <div class="col-3">
-            <input type="mail" class="form-control"/>
-        </div>
-        <label for="staticEmail" class="col-3 col-form-label"></label>
-        <div class="col-3"></div>
-        <div class="col-1"></div>
-    </div>
-
-    <div class="form-row mt-4">
-        <label for="staticEmail" class="col-2 col-form-label text-right">Ville</label>
-        <div class="col-3">
-            <input type="mail" class="form-control"/>
-        </div>
-        <label for="staticEmail" class="col-3 col-form-label"></label>
-        <div class="col-3"></div>
-        <div class="col-1"></div>
-    </div>
-
-    <div class="form-row mt-4">
-        <label for="staticEmail" class="col-2 col-form-label text-right">Pays</label>
-        <div class="col-3">
-            <input type="mail" class="form-control"/>
-        </div>
-        <label for="staticEmail" class="col-3 col-form-label"></label>
-        <div class="col-3"></div>
-        <div class="col-1"></div>
     </div>
 
 </form>
+
+    <div class="col-1 mt-5 pt-5">
+    </div>
+
+    <div class="row">
+        <div class="col-12 mt-5 pt-5">
+            <img class="img-fluid" src="{{ asset('assets/pictures/BODY/ESPACE CLIENT/bas de page pictos.png') }}" />
+        </div>
+    </div>
+
+
 {% endblock %}
