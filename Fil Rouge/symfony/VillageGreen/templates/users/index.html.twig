@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users index{% endblock %}
+
+{% block body %}
+    <h1>Users index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>UseId</th>
+                <th>UseLastname</th>
+                <th>UseFirstname</th>
+                <th>UseAddress</th>
+                <th>UseZipcode</th>
+                <th>UseCity</th>
+                <th>UseMail</th>
+                <th>UsePhone</th>
+                <th>UsePassword</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.useId }}</td>
+                <td>{{ user.useLastname }}</td>
+                <td>{{ user.useFirstname }}</td>
+                <td>{{ user.useAddress }}</td>
+                <td>{{ user.useZipcode }}</td>
+                <td>{{ user.useCity }}</td>
+                <td>{{ user.useMail }}</td>
+                <td>{{ user.usePhone }}</td>
+                <td>{{ user.usePassword }}</td>
+                <td>
+                    <a href="{{ path('users_show', {'useId': user.useId}) }}">show</a>
+                    <a href="{{ path('users_edit', {'useId': user.useId}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('users_new') }}">Create new</a>
+{% endblock %}

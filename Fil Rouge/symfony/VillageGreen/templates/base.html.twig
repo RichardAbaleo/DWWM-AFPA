@@ -12,6 +12,7 @@
         {% endblock %}
         
         {% block javascripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
@@ -27,7 +28,7 @@
                             </div>
                             <div id="menu-1-ra">
                                 <a href="" class="menu-1">Infos</a>
-                                <a href="" class="menu-1">Espace client</a>
+                                <button id="menu-ec" class="menu-1" style="border: none; background: rgba(0,0,0,0.0);">Espace client</button>
                                 <a href="" class="menu-1"><img src="{{ asset('assets/pictures/HEADER/pictopanier.png') }}"/></a>
                             </div>
                             <div id="menu-1-rb">
@@ -75,6 +76,105 @@
                 </div>
             </div>
         </div> {# FIN CONTAINER #}
+    
+    <script>
+
+    $("document").ready(function(){
+
+        /* DEBUT MOUSE-HOVER "Nos catégories" */
+
+        $("#guitare-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER guitare.png') }}");      
+        });     
+        $("#guitare-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES guitare.png') }}");      
+        });
+
+        $("#batterie-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER batterie.png') }}");      
+        });     
+        $("#batterie-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES batterie.png') }}");      
+        });
+
+        $("#piano-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER piano.png') }}");      
+        });     
+        $("#piano-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES piano.png') }}");      
+        });
+
+        $("#micro-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER micro.png') }}");      
+        });     
+        $("#micro-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES micro.png') }}");      
+        });
+
+        $("#sono-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER sono.png') }}");      
+        });     
+        $("#sono-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES sono.png') }}");      
+        });
+
+        $("#cases-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER cases.png') }}");      
+        });     
+        $("#cases-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES cases.png') }}");      
+        }); 
+
+        $("#cable-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER access.png') }}");      
+        });     
+        $("#cable-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES cable.png') }}");      
+        }); 
+
+        $("#saxo-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER saxo.png') }}");      
+        });     
+        $("#saxo-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES saxo.png') }}");      
+        }); 
+
+        /* FIN MOUSE-HOVER "Nos catégories" */
+
+
+        /* DEBUT MOUSE-HOVER "Nos meilleurs ventes" */
+
+        $("#guitare-vente img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/TOP VENTES ROLL OVER guitare.png') }}");      
+        });     
+        $("#guitare-vente  img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/TOP VENTES guitare.png') }}");      
+        });
+
+        $("#saxo-vente  img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/TOP VENTES ROLL OVER saxo.png') }}");      
+        });     
+        $("#saxo-vente img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/TOP VENTES saxo.png') }}");      
+        });
+
+        $("#piano-vente img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/TOP VENTES ROLL OVER piano.png') }}");      
+        });     
+        $("#piano-vente img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/TOP VENTES piano.png') }}");      
+        });
+
+        /* FIN MOUSE-HOVER "Nos meilleurs ventes" */
+
+        $("#menu-ec").click(function() {
+                                    
+        }); 
+        
+        
+    });
+
+    </script>
     </body>
 </html>
 

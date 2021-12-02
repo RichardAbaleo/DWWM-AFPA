@@ -6,10 +6,8 @@ use App\Entity\Users;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
-class UsersType extends AbstractType
+class Users1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -19,11 +17,12 @@ class UsersType extends AbstractType
             ->add('useAddress')
             ->add('useZipcode')
             ->add('useCity')
-            ->add('useMail', EmailType::class)
+            ->add('useMail')
             ->add('usePhone')
-            ->add('usePassword', PasswordType::class)
-            ->add('confirm_password', PasswordType::class)
+            ->add('usePassword')
             ->add('useCou')
+            ->add('useCom')
+            ->add('useTyp')
         ;
     }
 

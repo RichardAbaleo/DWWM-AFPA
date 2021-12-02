@@ -3,28 +3,29 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<form class="mt-5">
-    <div class="row">
+{{ form_start(form) }}
+    <div class="row mt-5">
         <div class="col-12"><p class="text-center" id="titre-form">Créez vos identifiants</p></div>
     </div>
     <div class="form-row mt-4">
-        <label for="staticEmail" class="col-2 col-form-label text-right">E-mail</label>
+        <label for="Email" class="col-2 col-form-label text-right">E-mail</label>
         <div class="col-3">
-            <input type="mail" class="form-control"/>
+            {{ form_widget(form.useMail) }}
         </div>
-        <label for="staticEmail" class="col-3 col-form-label"></label>
+        <label for="" class="col-3 col-form-label"></label>
         <div class="col-3"></div>
         <div class="col-1"></div>
     </div>
 
     <div class="form-row mt-3">  
-        <label for="staticEmail" class="col-2 col-form-label text-right">Créez votre mot de passe</label>
+        <label for="password1" class="col-2 col-form-label text-right">Créez votre mot de passe</label>
         <div class="col-3">
-            <input type="password" class="form-control"/>
+            {{ form_widget(form.usePassword) }}
         </div>
-        <label for="staticEmail" class="col-3 col-form-label text-right">Confirmation mot de passe</label>
+        <label for="password2" class="col-3 col-form-label text-right">Confirmation mot de passe</label>
         <div class="col-3">
-            <input type="password" class="form-control"/>
+            {{ form_widget(form.confirm_password) }}
+            {{ form_errors(form.usePassword) }}
         </div>
         <div class="col-1"></div>
     </div>
@@ -36,33 +37,32 @@
     <div class="form-row mt-3">
 
         <div class="col-2 col-form-label text-right">
-            <p class="mt-3">Email</p>
-            <p class="mt-4 pt-1">Nom</p>
-            <p class="mt-4 pt-2">Adresse</p>
-            <p class="mt-4 pt-1">Complément d'adresse</p>
+            <p class="mt-4 pt-1">Prénom</p>
+            <p class="mt-4 pt-2">Nom</p>
+            <p class="mt-4 pt-1">Adresse</p>
             <p class="mt-4 pt-2">Code postal</p>
             <p class="mt-4 pt-1">Ville</p>
             <p class="mt-4 pt-2">Pays</p>
         </div>
+
         <div class="col-3">
-            {{ form_widget(form.useMail) }}
-            {# <input type="text" class="form-control mt-3"/> #}
-            <input type="text" class="form-control mt-3"/>
-            <input type="text" class="form-control mt-3"/>
-            <input type="text" class="form-control mt-3"/>
-            <input type="text" class="form-control mt-3"/>
-            <input type="text" class="form-control mt-3"/>
-            <input type="text" class="form-control mt-3"/>
+            <div class="mt-4">{{ form_widget(form.useFirstname) }}</div>
+            <div class="mt-3">{{ form_widget(form.useLastname) }}</div>
+            <div class="mt-3">{{ form_widget(form.useAddress) }}</div>
+            <div class="mt-3">{{ form_widget(form.useZipcode) }}</div>
+            <div class="mt-3">{{ form_widget(form.useCity) }}</div>
+            <div class="mt-3">{{ form_widget(form.useCou) }}</div>
+
         </div>
 
         <div class="col-2"></div>
         
         <div class="col-4">
             <div id="client-num">
-            <div style="height: 19%"></div>
-            <input id="test" type="text" class="form-control"/>
+            <div style="height: 22%"></div>
+            <div id="test">{{ form_widget(form.usePhone) }}</div>
             <div style="height: 3%"></div>
-            <input id="test" type="text" class="form-control"/>                    
+            <input id="test" type="text" class="form-control" disabled/>                    
             </div>
         </div>
 
@@ -77,7 +77,7 @@
         </div>
     </div>
 
-</form>
+{{ form_end(form) }}
 
     <div class="col-1 mt-5 pt-5">
     </div>
@@ -87,6 +87,7 @@
             <img class="img-fluid" src="{{ asset('assets/pictures/BODY/ESPACE CLIENT/bas de page pictos.png') }}" />
         </div>
     </div>
+
 
 
 {% endblock %}

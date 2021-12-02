@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Entity\Country;
 use App\Entity\Commercial;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Users
@@ -76,8 +77,16 @@ class Users
      * @var string
      *
      * @ORM\Column(name="use_password", type="string", length=50, nullable=false)
+     * @Assert\Equalto(propertyPath="confirm_password", message="Mots de passe non-identiques.")
      */
     private $usePassword;
+
+    /**
+     * @var string
+     * 
+     * @Assert\Equalto(propertyPath="usePassword")
+     */
+    public $confirm_password;
 
     /**
      * @var \Country
@@ -245,6 +254,5 @@ class Users
 
         return $this;
     }
-
 
 }
