@@ -148,3 +148,43 @@ body {
     margin-left: 37%;
     width: 55%;
 }
+
+#connexion-menu {
+    position : absolute; 
+    z-index:8; 
+    margin-left:29%; 
+    margin-top: 30px;
+    padding-top: 30px;
+    background-image: url("../pictures/MODAL/MODAL espace client encadrer.png");
+    background-size: cover;
+    width: 518px;
+    display: flex;
+    justify-content: row;
+    font-size: 0.75rem;
+}
+
+#menu-left {
+    width: 45%;
+    padding-right: 10px;
+}
+
+#menu-right {
+    padding-left: 4px;
+    width: 45%;
+}
+
+#menu-deroulant {
+    position : absolute; 
+    z-index:8;
+    background-image: url("../pictures/MODAL/MODAL guitare encadrer.png");
+    background-size: cover;
+    width: 250px;
+    height: 370px;
+}
+
+#menu-liste {
+    background-color: red;
+    margin-top: 30px;
+    width: 83%;
+    margin-left: 10%;
+}

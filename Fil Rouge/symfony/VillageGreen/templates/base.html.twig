@@ -17,9 +17,42 @@
         {% endblock %}
     </head>
     <body>
+    
         <div class="container" id="container-m">
             <div id="page">
             <header id="header">
+
+            <div id="connexion-menu" style="display :none;">
+                <div style="width:6%;"></div>
+                <div id="menu-left">
+                    <p class="text-center"><b>Êtes-vous déjà clients chez nous?</b></p>
+                    <input class="form-control mt-4"></input>
+                    <input class="form-control mt-2"></input>
+                    <input type="checkbox" style="margin-top: 10px;"> Rester connecté</input>
+                    <button style="border: none; margin-top: 5px;"><img src="{{ asset('assets/pictures/MODAL/MODAL espace client bouton connect.png') }}"/></button>
+                    <p class="text-center mt-2">Vous avez oublié votre mot de passe?</p>
+                </div>
+                <div id="menu-right">
+                    <p class="text-center"><b>N'êtes-vous pas encore client?</b></p>
+                    <p class="text-center">En tant que client Village Green vous pouvez suivre vos envoies, lire des tests produits exclusifs, évaluer des produits, déposer des petites annonces, gérer vos chèques-cadeaux, devenir partenaire et bien plus encore.</p>
+                    <button style="border: none;"><img src="{{ asset('assets/pictures/MODAL/MODAL espace client bouton inscrire.png') }}"/></button>
+                    <p class="text-center mt-2">Plus d'informations</p>
+                </div>
+            </div>
+
+            <div id="menu-deroulant">
+                <ul id="menu-liste" style="list-style:none;">
+                    <li>Guitares Electriques</li>
+                    <li>Guitares classiques</li>
+                    <li>Guitares Acoustiques & Electro-Acoustiques</li>
+                    <li>Basses Electriques</li>
+                    <li>Basses Acoustiques</li>
+                    <li>Basses Semi-Acoustiques</li>
+                    <li>Ukulélés</li>
+                    <li>Autres instruments à cordes pincées</li>
+                </ul>
+            </div>
+
             <div class="row">
                 <div class="col-12" id="menu-col-12">
                         <div id="menu-1">
@@ -167,11 +200,13 @@
 
         /* FIN MOUSE-HOVER "Nos meilleurs ventes" */
 
-        $("#menu-ec").click(function() {
-                                    
-        }); 
-        
-        
+        /* AFFICHAGE SOUS MENU LOG */
+
+
+        $('#menu-ec').click(function(){
+           $('#connexion-menu').toggle();
+        });
+                
     });
 
     </script>
