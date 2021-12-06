@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Village Green - {% block title %}{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <link href="{{ asset('assets/css/css.css') }}" type="text/css" rel="stylesheet">
+        {% endblock %}
+        
+        {% block javascripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body>
+
+    
+        <div class="container" id="container-m">
+            <div id="page">
+            <header id="header">
+
+            <div id="connexion-menu" style="display :none;">
+                <div style="width:6%;"></div>
+                <div id="menu-left">       
+                    <form method="post" action="/login">
+                        <p class="text-center"><b>Êtes-vous déjà clients chez nous?</b></p>
+                        <input class="form-control my-0" type="email" value="" name="UseMail" id="inputUseMail" autocomplete="email" required autofocus placeholder="Adresse E-mail">
+                        <input class="form-control my-0" type="password" name="password" id="inputPassword" autocomplete="current-password" required placeholder="Mot de passe">
+                        <input type="hidden" name="_csrf_token"
+                            value="{{ csrf_token('authenticate') }}">
+                        <div class="checkbox mt-1">
+                            <label>
+                                <input style="margin-top: 10px;" type="checkbox" name="_remember_me"> Rester connecté
+                            </label>
+                        </div>
+                        <button style="border: none; margin-top: 5px;" type="submit">
+                            <img src="{{ asset('assets/pictures/MODAL/MODAL espace client bouton connect.png') }}"/>
+                        </button>
+                        <p class="text-center mt-2">Vous avez oublié votre mot de passe?</p>
+                    </form>
+                </div>
+                <div id="menu-right">
+                    <p class="text-center"><b>N'êtes-vous pas encore client?</b></p>
+                    <p class="text-center">En tant que client Village Green vous pouvez suivre vos envoies, lire des tests produits exclusifs, évaluer des produits, déposer des petites annonces, gérer vos chèques-cadeaux, devenir partenaire et bien plus encore.</p>
+                    <a href="village_green/inscription" style="border: none;"><img src="{{ asset('assets/pictures/MODAL/MODAL espace client bouton inscrire.png') }}"/></a>
+                    <p class="text-center mt-2">Plus d'informations</p>
+                </div>
+            </div>
+
+            {# <div id="menu-deroulant">
+                <ul id="menu-liste" style="list-style:none;">
+                    <li>Guitares Electriques</li>
+                    <li>Guitares classiques</li>
+                    <li>Guitares Acoustiques & Electro-Acoustiques</li>
+                    <li>Basses Electriques</li>
+                    <li>Basses Acoustiques</li>
+                    <li>Basses Semi-Acoustiques</li>
+                    <li>Ukulélés</li>
+                    <li>Autres instruments à cordes pincées</li>
+                </ul>
+            </div> #}
+
+            <div class="row">
+                <div class="col-12" id="menu-col-12">
+                        <div id="menu-1">
+                            <div id="menu-1-l">
+                                <a href="/village_green"><img src="{{ asset('assets/pictures/HEADER/logo villagegreen.png') }}" class="img-fluid"/><a/>
+                            </div>
+                            <div id="menu-1-ra">
+                                <a href="" class="menu-1">Infos</a>
+                                <button id="menu-ec" class="menu-1" style="border: none; background: rgba(0,0,0,0.0);">Espace client</button>
+                                <a href="" class="menu-1"><img src="{{ asset('assets/pictures/HEADER/pictopanier.png') }}"/></a>
+                            </div>
+                            <div id="menu-1-rb">
+                                <a href="" class="menu-1"><img src="{{ asset('assets/pictures/HEADER/pictopays.png') }}"/></a>
+                            </div>
+                        </div>
+
+                        <div id="menu-2">
+                            <div id="menu-2-l">
+                            </div>
+                            <div id="menu-2-r">
+                                <a href="" class="menu-2">Produits</a>
+                                <a href="" class="menu-2">Service</a>
+                                <a href="" class="menu-2">Aide</a>
+                                <a href="" class="menu-2">A propos</a>
+                            </div>
+                        </div>
+
+                        <div id="menu-3">
+                            <div id="menu-3-l">
+                            </div>
+                            <div id="menu-3-r">                           
+                            <a href="" class="menu-3">Guit/Bass</a>
+                            <a href="" class="menu-3">Batteries</a>
+                            <a href="" class="menu-3">Clavier</a>
+                            <a href="" class="menu-3">Studio</a>
+                            <a href="" class="menu-3">Sono</a>
+                            <a href="" class="menu-3">Eclairage</a>
+                            <a href="" class="menu-3">DJ</a>
+                            <a href="" class="menu-3">Cases</a>
+                            <a href="" class="menu-3">Accessoires</a>
+                            </div>
+                        </div>
+                </div> {# row #}
+            </div> {# col-12 #}
+            </header>
+        
+
+        {% block body %}{% endblock %}
+            
+            </div> {# page #}
+            <div class="row">
+                <div id="footer" class="col-12">
+                    <img id="footer-img" src="{{ asset('assets/pictures/FOOTER/footer SIMPLE.png') }}"/>
+                </div>
+            </div>
+        </div> {# FIN CONTAINER #}
+    
+    <script>
+
+    $("document").ready(function(){
+
+        /* DEBUT MOUSE-HOVER "Nos catégories" */
+
+        $("#guitare-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER guitare.png') }}");      
+        });     
+        $("#guitare-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES guitare.png') }}");      
+        });
+
+        $("#batterie-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER batterie.png') }}");      
+        });     
+        $("#batterie-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES batterie.png') }}");      
+        });
+
+        $("#piano-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER piano.png') }}");      
+        });     
+        $("#piano-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES piano.png') }}");      
+        });
+
+        $("#micro-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER micro.png') }}");      
+        });     
+        $("#micro-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES micro.png') }}");      
+        });
+
+        $("#sono-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER sono.png') }}");      
+        });     
+        $("#sono-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES sono.png') }}");      
+        });
+
+        $("#cases-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER cases.png') }}");      
+        });     
+        $("#cases-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES cases.png') }}");      
+        }); 
+
+        $("#cable-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER access.png') }}");      
+        });     
+        $("#cable-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES cable.png') }}");      
+        }); 
+
+        $("#saxo-over img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES ROLL OVER saxo.png') }}");      
+        });     
+        $("#saxo-over img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/CATEGORIES saxo.png') }}");      
+        }); 
+
+        /* FIN MOUSE-HOVER "Nos catégories" */
+
+
+        /* DEBUT MOUSE-HOVER "Nos meilleurs ventes" */
+
+        $("#guitare-vente img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/TOP VENTES ROLL OVER guitare.png') }}");      
+        });     
+        $("#guitare-vente  img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/TOP VENTES guitare.png') }}");      
+        });
+
+        $("#saxo-vente  img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/TOP VENTES ROLL OVER saxo.png') }}");      
+        });     
+        $("#saxo-vente img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/TOP VENTES saxo.png') }}");      
+        });
+
+        $("#piano-vente img").mouseenter(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/TOP VENTES ROLL OVER piano.png') }}");      
+        });     
+        $("#piano-vente img").mouseleave(function(){       
+            $(this).attr('src',"{{ asset('assets/pictures/BODY/TOP VENTES piano.png') }}");      
+        });
+
+        /* FIN MOUSE-HOVER "Nos meilleurs ventes" */
+
+        /* AFFICHAGE SOUS MENU LOG */
+
+
+        $('#menu-ec').click(function(){
+
+            {% if app.user %}
+                window.location.href='login';
+            {% else %}
+                $('#connexion-menu').toggle();
+            {% endif %}
+        });
+                
+    });
+
+    </script>
+    </body>
+</html>

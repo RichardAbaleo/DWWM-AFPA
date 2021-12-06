@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+{{ form_start(form) }}
+    <div class="row mt-5">
+        <div class="col-12"><p class="text-center" id="titre-form">Créez vos identifiants</p></div>
+    </div>
+    <div class="form-row mt-4">
+        <label class="col-2 text-right">E-mail</label>
+        <div class="col-3">
+            {{ form_widget(form.UseMail) }}
+        </div>
+        <label class="col-3 col-form-label"></label>
+        <div class="col-3"></div>
+        <div class="col-1"></div>
+    </div>
+
+    <div class="form-row mt-3">  
+        <label class="col-2 col-form-label text-right">Créez votre mot de passe</label>
+        <div class="col-3">
+            {{ form_widget(form.password.first) }}
+        </div>
+        <label class="col-3 col-form-label text-right">Confirmation mot de passe</label>
+        <div class="col-3">
+            {{ form_widget(form.password.second) }}
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12"><p class="text-center" id="titre-form">Vos informations</p></div>
+    </div>
+
+    <div class="form-row mt-3">
+
+        <div class="col-2 col-form-label text-right">
+            <p class="mt-4 pt-1">Prénom</p>
+            <p class="mt-4 pt-2">Nom</p>
+            <p class="mt-4 pt-1">Adresse</p>
+            <p class="mt-4 pt-2">Code postal</p>
+            <p class="mt-4 pt-1">Ville</p>
+            <p class="mt-4 pt-2">Pays</p>
+        </div>
+
+        <div class="col-3">
+            <div class="mt-4">{{ form_widget(form.use_firstname) }}</div>
+            <div class="mt-3">{{ form_widget(form.use_lastname) }}</div>
+            <div class="mt-3">{{ form_widget(form.use_address) }}</div>
+            <div class="mt-3">{{ form_widget(form.use_zipcode) }}</div>
+            <div class="mt-3">{{ form_widget(form.use_city) }}</div>
+            <div class="mt-3">{{ form_widget(form.use_cou_id) }}</div>
+
+        </div>
+
+        <div class="col-2"></div>
+        
+        <div class="col-4">
+            <div id="client-num">
+            <div style="height: 22%"></div>
+            <div id="test">{{ form_widget(form.use_mobilephone) }}</div>
+            <div style="height: 3%"></div>
+            <div id="test">{{ form_widget(form.use_phone) }}</div>                    
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-1 mt-2">
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center mt-5 pt-5 mb-5">
+            <button type="submit" style="border: none;"><img src="{{ asset('assets/pictures/BODY/ESPACE CLIENT/bouton valider.png') }}"/></button>
+        </div>
+    </div>
+
+{{ form_end(form) }}
+
+    <div class="col-1 mt-5 pt-5">
+    </div>
+
+    <div class="row">
+        <div class="col-12 mt-5 pt-5">
+            <img class="img-fluid" src="{{ asset('assets/pictures/BODY/ESPACE CLIENT/bas de page pictos.png') }}" />
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,190 @@
+body {
+    background-image : url("../pictures/BACKGROUND/background\ village.png");
+    background-size: cover;
+}
+
+#container-m {
+    background-image: url("../pictures/BACKGROUND/bande\ milieu.png");
+    width: cover;
+    height: 1800px;
+    padding-top: 15px;
+    padding-right: 5px;
+}
+
+#page {
+    height: 100%;
+    margin-left: 5px;
+    width: 100%;
+}
+
+#header {
+    width: 100%;
+    height: 164px;
+    background-image: url("../pictures/HEADER/3bandes.png");
+}
+
+#menu-1-l {
+    width: 60%;
+}
+
+#menu-1-ra {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#menu-1-rb {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    padding-left: 25px;
+}
+
+.menu-1 {
+    color:darkblue;
+    font-size: 1.1em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.menu-2 {
+    color: white;
+    font-weight: bold;
+    font-size: 1.6em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#menu-2-l {
+    width: 35%;
+    height: 100%;
+}
+
+#menu-2-r {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 20px;
+}
+
+#menu-3-l {
+    width: 30%;
+    height: 100%;
+}
+
+#menu-3-r {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 9px;
+}
+
+.menu-3 {
+    color: white;
+    font-size: 1.4em;
+}
+
+#menu-1 {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#menu-2 {
+    width: 100%;
+    height: 54px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#menu-3 {
+    width: 100%;
+    height: 53px;
+    display: flex;
+}
+
+#footer-img {
+    max-width: 102.4%;
+	height: auto;
+    margin-left: -13px;
+}
+
+#p-cat {
+    color: rgb(0, 0, 53);
+    font-weight: bold;
+}
+
+#form_inscription {
+    background-color: blue; 
+    height: 91%;
+}
+
+#form-1-l {
+    width: 50%;
+    background-color: chartreuse;
+}
+
+#form-1-l {
+    width: 50%;
+    background-color: purple;
+}
+
+#titre-form {
+    color: rgb(0, 0, 53);
+    font-size: 2em;
+}
+
+#client-num {
+    background-image: url("../pictures/BODY/ESPACE\ CLIENT/CADRE numero.png");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#test {
+    margin-left: 37%;
+    width: 55%;
+}
+
+#connexion-menu {
+    position : absolute; 
+    z-index:8; 
+    margin-left:29%; 
+    margin-top: 30px;
+    padding-top: 30px;
+    background-image: url("../pictures/MODAL/MODAL espace client encadrer.png");
+    background-size: cover;
+    width: 518px;
+    display: flex;
+    justify-content: row;
+    font-size: 0.75rem;
+}
+
+#menu-left {
+    width: 45%;
+    padding-right: 10px;
+}
+
+#menu-right {
+    padding-left: 4px;
+    width: 45%;
+}
+
+#menu-deroulant {
+    position : absolute; 
+    z-index:8;
+    background-image: url("../pictures/MODAL/MODAL guitare encadrer.png");
+    background-size: cover;
+    width: 250px;
+    height: 370px;
+}
+
+#menu-liste {
+    background-color: red;
+    margin-top: 30px;
+    width: 83%;
+    margin-left: 10%;
+}
