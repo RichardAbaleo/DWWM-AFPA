@@ -51,18 +51,7 @@
                 </div>
             </div>
 
-            {# <div id="menu-deroulant">
-                <ul id="menu-liste" style="list-style:none;">
-                    <li>Guitares Electriques</li>
-                    <li>Guitares classiques</li>
-                    <li>Guitares Acoustiques & Electro-Acoustiques</li>
-                    <li>Basses Electriques</li>
-                    <li>Basses Acoustiques</li>
-                    <li>Basses Semi-Acoustiques</li>
-                    <li>Ukulélés</li>
-                    <li>Autres instruments à cordes pincées</li>
-                </ul>
-            </div> #}
+            
 
             <div class="row">
                 <div class="col-12" id="menu-col-12">
@@ -94,8 +83,22 @@
                         <div id="menu-3">
                             <div id="menu-3-l">
                             </div>
-                            <div id="menu-3-r">                           
-                            <a href="" class="menu-3">Guit/Bass</a>
+                            <div id="menu-3-r">
+                            <div>                           
+                                <button id="guit_bass" style="border : none; background: rgba(0,0,0,0.0);" class="menu-3">Guit/Bass</button>
+                                <div id="menu-deroulant" style="margin-left : -92px; margin-top : -20px; display :none;">
+                                    <ul id="menu-liste" style="list-style:none;">
+                                        <li>Guitares Electriques</li>
+                                        <li>Guitares classiques</li>
+                                        <li>Guitares Acoustiques & Electro-Acoustiques</li>
+                                        <li>Basses Electriques</li>
+                                        <li>Basses Acoustiques</li>
+                                        <li>Basses Semi-Acoustiques</li>
+                                        <li>Ukulélés</li>
+                                        <li>Autres instruments à cordes pincées</li>
+                                    </ul>
+                                </div>
+                            </div>
                             <a href="" class="menu-3">Batteries</a>
                             <a href="" class="menu-3">Clavier</a>
                             <a href="" class="menu-3">Studio</a>
@@ -222,7 +225,13 @@
                 $('#connexion-menu').toggle();
             {% endif %}
         });
-                
+
+
+        $('#guit_bass').click(function(){
+
+            $('#menu-deroulant').toggle();
+
+        });   
     });
 
     </script>
