@@ -23,36 +23,6 @@
             <div id="page">
             <header id="header">
 
-            <div id="connexion-menu" style="display :none;">
-                <div style="width:6%;"></div>
-                <div id="menu-left">       
-                    <form method="post" action="/login">
-                        <p class="text-center"><b>Êtes-vous déjà clients chez nous?</b></p>
-                        <input class="form-control my-0" type="email" value="" name="UseMail" id="inputUseMail" autocomplete="email" required autofocus placeholder="Adresse E-mail">
-                        <input class="form-control my-0" type="password" name="password" id="inputPassword" autocomplete="current-password" required placeholder="Mot de passe">
-                        <input type="hidden" name="_csrf_token"
-                            value="{{ csrf_token('authenticate') }}">
-                        <div class="checkbox mt-1">
-                            <label>
-                                <input style="margin-top: 10px;" type="checkbox" name="_remember_me"> Rester connecté
-                            </label>
-                        </div>
-                        <button style="border: none; margin-top: 5px;" type="submit">
-                            <img src="{{ asset('assets/pictures/MODAL/MODAL espace client bouton connect.png') }}"/>
-                        </button>
-                        <p class="text-center mt-2">Vous avez oublié votre mot de passe?</p>
-                    </form>
-                </div>
-                <div id="menu-right">
-                    <p class="text-center"><b>N'êtes-vous pas encore client?</b></p>
-                    <p class="text-center">En tant que client Village Green vous pouvez suivre vos envoies, lire des tests produits exclusifs, évaluer des produits, déposer des petites annonces, gérer vos chèques-cadeaux, devenir partenaire et bien plus encore.</p>
-                    <a href="village_green/inscription" style="border: none;"><img src="{{ asset('assets/pictures/MODAL/MODAL espace client bouton inscrire.png') }}"/></a>
-                    <p class="text-center mt-2">Plus d'informations</p>
-                </div>
-            </div>
-
-            
-
             <div class="row">
                 <div class="col-12" id="menu-col-12">
                         <div id="menu-1">
@@ -62,6 +32,33 @@
                             <div id="menu-1-ra">
                                 <a href="" class="menu-1">Infos</a>
                                 <button id="menu-ec" class="menu-1" style="border: none; background: rgba(0,0,0,0.0);">Espace client</button>
+                                    <div id="connexion-menu" style="display :none; margin-left: 15px;">
+                                        <div style="width:6%;"></div>
+                                        <div id="menu-left">       
+                                            <form method="post" action="/login">
+                                                <p class="text-center"><b>Êtes-vous déjà clients chez nous?</b></p>
+                                                <input class="form-control my-0" type="email" value="" name="UseMail" id="inputUseMail" autocomplete="email" required autofocus placeholder="Adresse E-mail">
+                                                <input class="form-control my-0" type="password" name="password" id="inputPassword" autocomplete="current-password" required placeholder="Mot de passe">
+                                                <input type="hidden" name="_csrf_token"
+                                                    value="{{ csrf_token('authenticate') }}">
+                                                <div class="checkbox mt-1">
+                                                    <label>
+                                                        <input style="margin-top: 10px;" type="checkbox" name="_remember_me"> Rester connecté
+                                                    </label>
+                                                </div>
+                                                <button style="border: none; margin-top: 5px;" type="submit">
+                                                    <img src="{{ asset('assets/pictures/MODAL/MODAL espace client bouton connect.png') }}"/>
+                                                </button>
+                                                <p class="text-center mt-2">Vous avez oublié votre mot de passe?</p>
+                                            </form>
+                                        </div>
+                                        <div id="menu-right">
+                                            <p class="text-center"><b>N'êtes-vous pas encore client?</b></p>
+                                            <p class="text-center">En tant que client Village Green vous pouvez suivre vos envoies, lire des tests produits exclusifs, évaluer des produits, déposer des petites annonces, gérer vos chèques-cadeaux, devenir partenaire et bien plus encore.</p>
+                                            <a href="village_green/inscription" style="border: none;"><img src="{{ asset('assets/pictures/MODAL/MODAL espace client bouton inscrire.png') }}"/></a>
+                                            <p class="text-center mt-2">Plus d'informations</p>
+                                        </div>
+                                    </div>
                                 <a href="" class="menu-1"><img src="{{ asset('assets/pictures/HEADER/pictopanier.png') }}"/></a>
                             </div>
                             <div id="menu-1-rb">
@@ -88,14 +85,14 @@
                                 <button id="guit_bass" style="border : none; background: rgba(0,0,0,0.0);" class="menu-3">Guit/Bass</button>
                                 <div id="menu-deroulant" style="margin-left : -92px; margin-top : -20px; display :none;">
                                     <ul id="menu-liste" style="list-style:none;">
-                                        <li>Guitares Electriques</li>
-                                        <li>Guitares classiques</li>
-                                        <li>Guitares Acoustiques & Electro-Acoustiques</li>
-                                        <li>Basses Electriques</li>
-                                        <li>Basses Acoustiques</li>
-                                        <li>Basses Semi-Acoustiques</li>
-                                        <li>Ukulélés</li>
-                                        <li>Autres instruments à cordes pincées</li>
+                                        <a href=""><li>Guitares Electriques</li></a>
+                                        <a href=""><li>Guitares classiques</li></a>
+                                        <a href=""><li>Guitares Acoustiques & Electro-Acoustiques</li></a>
+                                        <a href=""><li>Basses Electriques</li></a>
+                                        <a href=""><li>Basses Acoustiques</li></a>
+                                        <a href=""><li>Basses Semi-Acoustiques</li></a>
+                                        <a href=""><li>Ukulélés</li></a>
+                                        <a href=""><li>Autres instruments à cordes pincées</li></a>
                                     </ul>
                                 </div>
                             </div>

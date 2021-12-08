@@ -183,8 +183,10 @@ body {
 }
 
 #menu-liste {
-    background-color: red;
     margin-top: 30px;
     width: 83%;
     margin-left: 10%;
+    height: 80%;
+    font-size: 1.07rem;
+    color: red;
 }
