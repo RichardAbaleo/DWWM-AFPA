@@ -17,7 +17,8 @@ class VillageGreenController extends AbstractController
      * @Route("/village_green", name="village_green")
      */
     public function index(): Response
-    {
+    {   
+        // $articles = $this->getDoctrine()->getRepository(Articles::class)->findBy([],['created_at' => 'desc']);
         
         return $this->render('village_green/index.html.twig', [
             'controller_name' => 'VillageGreenController',
